@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Build script for Temporal Money Transfer Worker - Baseline Version
+# Build script for Temporal Money Transfer Worker - Sandbox
 set -e
 
 # Configuration
 IMAGE_NAME="temporal-money-transfer"
-VERSION="baseline"
+VERSION="sandbox"
 REGISTRY="${REGISTRY:-hub.docker.com}"
 FULL_IMAGE_NAME="${REGISTRY}/${IMAGE_NAME}:${VERSION}"
 
 echo "=================================================="
-echo "Building Temporal Money Transfer Worker (Baseline)"
+echo "Building Temporal Money Transfer Worker (Sandbox)"
 echo "=================================================="
 echo "Image: ${FULL_IMAGE_NAME}"
 echo "Build Date: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"

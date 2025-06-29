@@ -1,0 +1,17 @@
+apiVersion: signadot.com/v1
+kind: Sandbox
+name: temporal-worker-sb
+spec:
+   description: Isolated sandbox environments to enable transparent workflow versioning
+   cluster: "@{cluster}"
+   forks:
+   - forkOf:
+       kind: Deployment
+       name: temporal-worker-baseline
+       namespace: temporal
+     customizations:
+       images:
+        - image: "<your-temporal-worker-image:tag>"
+       env:
+        - name: SANDBOX_NAME
+          value: "temporal-worker-sb"

@@ -19,7 +19,6 @@ echo ""
 
 # Build the Docker image
 echo "Building Docker image..."
-cd py_client
 docker build \
     --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
     --build-arg VERSION="${VERSION}" \
@@ -48,3 +47,13 @@ echo ""
 echo "To push to registry:"
 echo "  docker push ${FULL_IMAGE_NAME}"
 echo "  docker push ${REGISTRY}/${IMAGE_NAME}:latest"
+echo ""
+echo "To run locally:"
+echo "  docker run --rm -e TASK_QUEUE=money-transfer ${IMAGE_NAME}:${VERSION}"
+echo ""
+echo "To run with custom configuration:"
+echo "  docker run --rm \\"
+echo "    -e TASK_QUEUE=money-transfer \\"
+echo "    -e TEMPORAL_SERVER_URL=temporal-server:7233 \\"
+echo "    -e ROUTES_API_URL=http://<your-router-api-url> \\"
+echo "    ${IMAGE_NAME}:${VERSION}"
