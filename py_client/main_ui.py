@@ -57,7 +57,7 @@ async def handle_start_workflow(
         )
         
         # Use None if routing_key is empty string, otherwise pass the value
-        effective_routing_key = baggage.extract_routing_key_from_baggage(request.headers['baggage']) if request.headers.get('baggage') else None        
+        effective_routing_key = baggage.extract_routing_key_from_baggage(request.headers) if request.headers.get('baggage') else None      
 
         result = await start_workflow_with_routing(
             payment_details=payment,
